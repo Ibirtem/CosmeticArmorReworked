@@ -91,7 +91,7 @@ public class GuiEvents
                     int slotY = cosmeticSlot.yDisplayPosition;
 
                     int buttonX = guiLeft + slotX + 18;
-                    int buttonY = guiTop + slotY + 11;
+                    int buttonY = guiTop + slotY;
 
                     int buttonId = 80 + (3 - i);
                     int armorSlotIndex = 3 - i;

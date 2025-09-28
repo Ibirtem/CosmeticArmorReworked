@@ -5,7 +5,6 @@ import java.util.UUID;
 import lain.mods.cos.InventoryManager;
 import lain.mods.cos.inventory.InventoryCosArmor;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.event.world.WorldEvent;
 import org.apache.commons.io.Charsets;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -46,14 +45,11 @@ public class InventoryManagerClient extends InventoryManager
     }
 
     @SubscribeEvent
-    public void handleEvent(WorldEvent.Unload event)
+    public void handleEvent(ClientDisconnectionFromServerEvent event)
     {
-        if (event.world.isRemote)
-        {
-            PlayerRenderHandler.HideCosArmor = false;
-            cacheClient.invalidateAll();
-            map.clear();
-        }
+        PlayerRenderHandler.HideCosArmor = false;
+        cacheClient.invalidateAll();
+        map.clear();
     }
 
 }
